@@ -21,11 +21,11 @@ def main():
     config_file_path = args.config_file_path
     print(f'Reading configuration from {config_file_path}')
 
-    config = ConfigFactory.parse_file(f'/Workspace/{config_file_path}')
+    config = ConfigFactory.parse_file(config_file_path)
     schema_name = config.get('schema_name')
     print(f'Parsed out schema name: {schema_name}')
 
-    spark_session = SparkSession.builder.getOrCreate()
+    # spark_session = SparkSession.builder.getOrCreate()
 
 
 

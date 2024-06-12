@@ -24,7 +24,7 @@ targets:
       exclude:
         - ./environment_config/qa.conf
     variables:
-      config_file_path: ${workspace.file_path}/environment_config/dev.conf
+      config_file_path: /Workspace/${workspace.file_path}/environment_config/dev.conf
     workspace:
       host: ...
 
@@ -34,7 +34,7 @@ targets:
       exclude:
         - ./environment_config/dev.conf
     variables:
-      config_file_path: ${workspace.file_path}/environment_config/qa.conf
+      config_file_path: /Workspace/${workspace.file_path}/environment_config/qa.conf
     workspace:
       host: ...
     run_as:
