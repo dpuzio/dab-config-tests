@@ -12,29 +12,31 @@ artifacts:
     build: poetry build
     path: .
 
+variables:
+  config_file_path:
+    description: A path to the file with jobs' configuration parameters
+
 targets:
-  # The 'dev' target, for development purposes. This target is the default.
-  dev1:
-    # We use 'mode: development' to indicate this is a personal development copy:
-    # - Deployed resources get prefixed with '[dev my_user_name]'
-    # - Any job schedules and triggers are paused by default
-    # - The 'development' mode is used for Delta Live Tables pipelines
+  dev:
     mode: development
     default: true
     sync:
       exclude:
-        - ./environment_config/dev2.conf
+        - ./environment_config/qa.conf
+    variables:
+      config_file_path: ${workspace.file_path}/environment_config/dev.conf
     workspace:
       host: ...
 
-  dev2:
-    # We use 'mode: development' to indicate this is a personal development copy:
-    # - Deployed resources get prefixed with '[dev my_user_name]'
-    # - Any job schedules and triggers are paused by default
-    # - The 'development' mode is used for Delta Live Tables pipelines
-    mode: development
+  qa:
+    mode: production
     sync:
       exclude:
-        - ./environment_config/dev1.conf
+        - ./environment_config/dev.conf
+    variables:
+      config_file_path: ${workspace.file_path}/environment_config/qa.conf
     workspace:
       host: ...
+    run_as:
+      user_name: ...
+

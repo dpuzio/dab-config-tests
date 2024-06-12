@@ -13,6 +13,10 @@ resources:
         on_failure:
           - dominika.makuch@thoughtworks.com
 
+      parameters:
+        - name: config_file_path
+          default: ${var.config_file_path}
+
       tasks:
         - task_key: main_task
           job_cluster_key: job_cluster
@@ -24,6 +28,7 @@ resources:
             # See https://docs.databricks.com/dev-tools/bundles/library-dependencies.html
             # for more information on how to add other libraries.
             - whl: ../dist/*.whl
+
 
       job_clusters:
         - job_cluster_key: job_cluster

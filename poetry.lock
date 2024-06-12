@@ -108,6 +108,36 @@ files = [
 ]
 
 [[package]]
+name = "pyhocon"
+version = "0.3.61"
+description = "HOCON parser for Python"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pyhocon-0.3.61-py3-none-any.whl", hash = "sha256:73d0f064af9a7d454949c5557284ce1d716cfd8e1383ecc90095fc575d278df0"},
+]
+
+[package.dependencies]
+pyparsing = {version = ">=2,<4", markers = "python_version >= \"3.0\""}
+
+[package.extras]
+duration = ["python-dateutil (>=2.8.0)"]
+
+[[package]]
+name = "pyparsing"
+version = "3.1.2"
+description = "pyparsing module - Classes and methods to define and execute parsing grammars"
+optional = false
+python-versions = ">=3.6.8"
+files = [
+    {file = "pyparsing-3.1.2-py3-none-any.whl", hash = "sha256:f9db75911801ed778fe61bb643079ff86601aca99fcae6345aa67292038fb742"},
+    {file = "pyparsing-3.1.2.tar.gz", hash = "sha256:a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"},
+]
+
+[package.extras]
+diagrams = ["jinja2", "railroad-diagrams"]
+
+[[package]]
 name = "pyspark"
 version = "3.5.1"
 description = "Apache Spark Python API"
@@ -178,4 +208,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "0e27700d8a8755dbcc004f2d24278a2f96cfcad87e5199904e29c1382fc2c700"
+content-hash = "1601d56c3c0903d41942b09b12db93c22db7acda9a62f2e06f4da61f9dfe0d8e"
