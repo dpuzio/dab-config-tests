@@ -1,0 +1,40 @@
+# This is a Databricks asset bundle definition for config_tests.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: config_tests
+
+include:
+  - resources/*.yml
+
+artifacts:
+  default:
+    type: whl
+    build: poetry build
+    path: .
+
+targets:
+  # The 'dev' target, for development purposes. This target is the default.
+  dev1:
+    # We use 'mode: development' to indicate this is a personal development copy:
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default
+    # - The 'development' mode is used for Delta Live Tables pipelines
+    mode: development
+    default: true
+    sync:
+      exclude:
+        - ./environment_config/dev2.conf
+    workspace:
+      host: ...
+
+  dev2:
+    # We use 'mode: development' to indicate this is a personal development copy:
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default
+    # - The 'development' mode is used for Delta Live Tables pipelines
+    mode: development
+    sync:
+      exclude:
+        - ./environment_config/dev1.conf
+    workspace:
+      host: ...
